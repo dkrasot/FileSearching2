@@ -14,17 +14,14 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 //File Search with ForkJoin
+//https://docs.oracle.com/javase/tutorial/essential/concurrency/forkjoin.html        
+// D:\\Downloads\\1\\1  I:\\Series\\1\\1
+//Music library folders:   D:\Music library  D:\TMP Music  D:\Downloads\Music // .mp3
 
 public class FileSearching2 {
 
-    public static void main(String[] args) {
-        
-        //https://docs.oracle.com/javase/tutorial/essential/concurrency/forkjoin.html        
+    public static void main(String[] args) {                
         ForkJoinPool pool = new ForkJoinPool();
-        
-        //Music library folders:   D:\Music library  D:\TMP Music  D:\Downloads\Music
-        // .mp3
-        // D:\\Downloads\\1\\1  I:\\Series\\1\\1
         long t0 = System.nanoTime();
         //Stream<File> result = pool.invoke(new DirectoryWalker(new File("D:\\Music library"), ""));
         Stream<File> result = pool.invoke(new DirectoryWalker(new File("D:\\Music library\\"), ""));
